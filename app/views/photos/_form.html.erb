@@ -1,9 +1,7 @@
-<%= form_for([current_user, @photo]) do |f| %>
-	<div> <%= check_box_tag(:public) %>
-	<%= label_tag(:public, "Privacy: Public?") %></div>
-	<div> <%= f.label :caption %>
-	<%= f.text_area :caption %></div>
-	<div> <%= f.label :image %>
-	<%= f.text_area :image %></div>
+<%= simple_form_for([current_user, @photo]) do |f| %>
+	<div><%= f.input :public %></div>
+	<%= f.input :caption %>
+	<%= f.input :image, label: "Image URL" %>
 	<div><%= f.submit %></div>
+
 <% end %>
