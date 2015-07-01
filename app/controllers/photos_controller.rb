@@ -5,8 +5,13 @@ class PhotosController < ApplicationController
 	end
 	def show
 		@photo = current_user.photos.find params[:id]
+		#this is what is passed into the rendered form on show page
+		@comment = Comment.new(:photo => @photo)
+		# @comment = @photo.comments.build
+		#Leila added the following line and changed render @photo.comments to @comments and it worked... @comments = @photo.comments.reject(&:new_record?)
 	end
 	def new
+		#returns the newly created object without saving it
 		@photo = current_user.photos.build
 	end
 	def edit

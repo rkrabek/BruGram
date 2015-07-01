@@ -1,4 +1,9 @@
 <div>
 	<img src=<%= @photo.image %>>
 </div>
+
+<%= render @photo.comments %>
+
+<%= render 'comments/form' %>
+
 <%= link_to "Back", root_path %>

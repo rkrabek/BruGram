@@ -1,0 +1,8 @@
+<p><strong>Commenter:</strong>
+<%= comment.user.email %></p>
+<p><strong>Comment:
+<%= comment.body %></strong></p>
+
+<%= link_to 'Destroy', [comment.photo, comment],
+method: :delete,
+data: {confirm: 'Are you sure?'} %>

@@ -4,6 +4,8 @@
 	<%= link_to 'My Photos', user_photos_path(current_user) %>
 <% end %>
 	<%= @photos.each do |photo| %>
-		<li><img src=<%= photo.image %>></li>
+		<% if photo.public %>
+			<li><img src=<%= photo.image %>></li>
+		<% end %>
 	<% end %>
 </ul>
