@@ -4,7 +4,8 @@ class PhotosController < ApplicationController
 		@photos = current_user.photos
 	end
 	def show
-		@photo = current_user.photos.find params[:id]
+		#current_user.photos
+		@photo = Photo.find params[:id]
 		#this is what is passed into the rendered form on show page
 		@comment = Comment.new(:photo => @photo)
 		# @comment = @photo.comments.build
@@ -23,7 +24,7 @@ class PhotosController < ApplicationController
 	end
 	def update
 		@photo = current_user.photos.find params[:id]
-		if @photo.update(cost_params)
+		if @photo.update(photo_params)
 			redirect_to user_photo_path(current_user, @photo)
 		else
 			render 'edit'

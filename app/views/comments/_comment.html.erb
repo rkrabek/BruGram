@@ -2,7 +2,9 @@
 <%= comment.user.email %></p>
 <p><strong>Comment:
 <%= comment.body %></strong></p>
-
-<%= link_to 'Destroy', [comment.photo, comment],
-method: :delete,
-data: {confirm: 'Are you sure?'} %>
+<% if comment.user == current_user %>
+	<%= link_to 'Edit', edit_photo_comment_path(comment.photo, comment) %>
+	<%= link_to 'Destroy', [comment.photo, comment],
+	method: :delete,
+	data: {confirm: 'Are you sure?'} %>
+<% end %>
