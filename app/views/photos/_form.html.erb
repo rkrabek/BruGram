@@ -1,5 +1,5 @@
 <%= simple_form_for([current_user, @photo]) do |f| %>
-	<div><%= f.input :public %></div>
+	<div class="thing"><%= f.input :public %></div>
 	<%= f.input :caption %>
 	<%= f.input :image, label: "Image URL" %>
 	<div><%= f.submit %></div>
