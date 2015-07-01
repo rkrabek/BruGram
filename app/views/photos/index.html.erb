@@ -2,5 +2,8 @@
 <%= link_to "Add Photo", new_user_photo_path(current_user) %>
 <% @photos.each do |photo| %>
 	<%= link_to image_tag(photo.image), user_photo_path(current_user, photo) %>
-	<%= link_to "Edit Photo", edit_user_photo_path(current_user, photo)%>
+	<%= link_to "Edit", edit_user_photo_path(current_user, photo)%>
+	<%= link_to "Destroy", user_photo_path(current_user, photo),
+	method: :delete,
+	data: {confirm: 'Are you sure?'} %>
 <% end %>
