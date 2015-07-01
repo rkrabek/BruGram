@@ -1,0 +1,9 @@
+<h1>Brugram Photos</h1>
+<ul>
+<% if user_signed_in? %>
+	<%= link_to 'My Photos', user_photos_path(current_user) %>
+<% end %>
+	<%= @photos.each do |photo| %>
+		<li><img src=<%= photo.image %>></li>
+	<% end %>
+</ul>
